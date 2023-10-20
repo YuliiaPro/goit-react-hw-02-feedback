@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import { ListStatistics, ItemStatistics, Paragraph } from './Statistics.styled'
 
 class Statistics extends Component {
 render() {
 const { good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage } = this.props;
 return (  
-<div >
-<ul >             
-<li><p>Good: {good}</p>  </li>
-<li><p>Neutral: {neutral}</p> </li>
-<li><p>Bad: {bad}</p> </li>  
-<li><p>Total: {countTotalFeedback()}</p> </li>  
-<li><p>Positive feedback: {countPositiveFeedbackPercentage}%</p> </li>                      
-</ul>
-</div>)
+<>
+<ListStatistics >             
+<ItemStatistics><Paragraph>Good: {good}</Paragraph>  </ItemStatistics>
+<ItemStatistics><Paragraph>Neutral: {neutral}</Paragraph> </ItemStatistics>
+<ItemStatistics><Paragraph>Bad: {bad}</Paragraph> </ItemStatistics>  
+<ItemStatistics><Paragraph>Total: {countTotalFeedback()}</Paragraph> </ItemStatistics>  
+<ItemStatistics><Paragraph>Positive feedback: {countPositiveFeedbackPercentage}%</Paragraph> </ItemStatistics>                      
+</ListStatistics>
+</>)
 }
 }
 

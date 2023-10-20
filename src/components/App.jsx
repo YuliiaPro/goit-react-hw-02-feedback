@@ -3,13 +3,13 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
 import Section from 'components/Section/Section';
 import Notification from 'components/Notification/Notification';
+import { Container } from './App.styled'
 
 export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
-
   };
 
   handleFeedback = (option) => {
@@ -35,12 +35,13 @@ const { good, neutral, bad } = this.state;
       const visible = good + neutral + bad > 0;
       
     return (
-      <div>
+      <Container>
         <Section title="Please leave feedback">
         <FeedbackOptions options={options}
           onLeaveFeedback={this.handleFeedback}
           />
         </Section>
+
         <Section title="Statistics">
           {!visible ? <Notification message="There is no feedback"/>: <Statistics options={options}
           good={this.state.good}
@@ -50,7 +51,7 @@ const { good, neutral, bad } = this.state;
           countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
           />}
         </Section>
-      </div>
+      </Container>
     );
   }
 }

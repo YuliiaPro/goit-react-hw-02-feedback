@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import { Sections, TitleSection } from './Section.styled'
 
 class Section extends Component {
 render() {
 const { title, children } = this.props;
  return (
-<section>
-        {title && <h2>{title}</h2>}
+<Sections>
+        {title && <TitleSection>{title}</TitleSection>}
         {children}
-      </section>
+      </Sections>
 )
  }
 }
